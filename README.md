@@ -44,7 +44,7 @@ The french mobile carrier Free Mobile provides its customers with an API, allowi
 
 To use this URL with EdMon, you should specify it this way in the configuration :
 
-`"notifyURL" : "https://smsapi.free-mobile.fr/sendmsg?user=XXXXXXX&pass=XXXXXX&msg="`
+`"notifyURL" : "https://smsapi.free-mobile.fr/sendmsg?user=XXXXXXX&pass=XXXXXX&msg=",`
 
 so that EdMon will append the notification message to it and send you a notification.
 
