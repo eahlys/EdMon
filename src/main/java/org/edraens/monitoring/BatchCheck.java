@@ -72,13 +72,14 @@ public class BatchCheck {
             Object obj = parser.parse(new FileReader("config.json"));
             JSONObject jsonObject = (JSONObject) obj;
             String servername = (String) jsonObject.get("servername");
+            int timeout = ((Long) jsonObject.get("timeout")).intValue();
 
             // Parsing host list
             JSONArray hostsList = (JSONArray) jsonObject.get("services");
             for (Object host : hostsList) {
                 JSONObject jsonHost = (JSONObject) host;
                 // Checking host status
-                Service item = new Service((String) jsonHost.get("host"), (String) jsonHost.get("name"), ((Long)jsonHost.get("port")).intValue());
+                Service item = new Service((String) jsonHost.get("host"), (String) jsonHost.get("name"), ((Long)jsonHost.get("port")).intValue(), timeout);
                 if (item.getStatus()) {
                     // Host is up
                     System.out.println("[OK] Service up : " + item.getName() + " (" + item.getHost() + " TCP " + item.getPort() + ")");
