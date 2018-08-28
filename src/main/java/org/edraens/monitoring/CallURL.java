@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLEncoder;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -36,7 +37,7 @@ public class CallURL {
             if (jsonObject.containsKey("notifyURL") && sendNotification) {
                 // Creating URL
                 String URL = (String) jsonObject.get("notifyURL");
-                URL myurl = new URL(URL+message);
+                URL myurl = new URL(URL+URLEncoder.encode(message, "UTF-8"));
                 // Sending GET request
                 HttpsURLConnection con = (HttpsURLConnection) myurl.openConnection();
                 con.setRequestMethod("GET");
@@ -44,7 +45,7 @@ public class CallURL {
 
             }
 		} catch (Exception e) {
-			System.err.println("[ERROR] Error calling URL");
+			System.err.println(e);
 		}
         
     }
