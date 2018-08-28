@@ -1,0 +1,27 @@
+{
+   "ping": [
+      {
+         "name": "Server One",
+         "host": "one.exampleserver.com"
+      },
+      {
+         "name": "Server Two",
+         "host": "secondserver.xyz.example.com"
+      }
+   ],
+   "servername": "My name",
+   "EXAMPLE_notifyURL": "https URL to call for notifications. See documentation on https://github.com/Edraens/EdMon",
+   "services": [
+      {
+         "port": 80,
+         "name": "HTTP",
+         "host": "myserver.example"
+      },
+      {
+         "port": 53,
+         "name": "DNS",
+         "host": "mydns.server"
+      }
+   ],
+   "timeout": 1
+}
